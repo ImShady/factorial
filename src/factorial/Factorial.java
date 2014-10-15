@@ -4,22 +4,21 @@
 package factorial;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.math.BigDecimal;
-import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import javax.swing.UIManager;
 
 /**
  *
  * @author shady
  */
-public class Main extends javax.swing.JFrame {
+public class Factorial extends javax.swing.JFrame {
 
     /**
      * Creates new form Main
      */
-    public Main() {
+    public Factorial() {
         
         try
         {
@@ -46,8 +45,11 @@ public class Main extends javax.swing.JFrame {
         txtValue = new javax.swing.JTextField();
         lblExplain = new javax.swing.JLabel();
         btnCalculate = new javax.swing.JButton();
+        lblResult = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         lblTitle.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
         lblTitle.setText("Shady Factorial");
@@ -62,36 +64,52 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        lblResult.setFont(new java.awt.Font("Ubuntu", 0, 23)); // NOI18N
+        lblResult.setText("Result: ");
+
+        jLabel1.setText("© 2014 ShadyCraft, Inc. All Rights Reserved.");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnCalculate)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(lblExplain)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblResult)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCalculate))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblExplain)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(118, 118, 118)
-                        .addComponent(lblTitle)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                        .addComponent(lblTitle))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblExplain)
                     .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addComponent(btnCalculate)
-                .addGap(21, 21, 21))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCalculate)
+                    .addComponent(lblResult))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
 
         pack();
@@ -99,27 +117,27 @@ public class Main extends javax.swing.JFrame {
 
     private void btnCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculateActionPerformed
 
-       File factorial = new File ("factorial.txt");
-       
+        NumberFormat formatter = new DecimalFormat("0.######E0");
+        File factorial = new File("factorial.txt");
+
         BigDecimal bd = new BigDecimal(1);
         BigDecimal loop = new BigDecimal(1);
-        BigDecimal one = new BigDecimal(1);        
+        BigDecimal one = new BigDecimal(1);
 
-        for (BigDecimal fact = new BigDecimal(Integer.parseInt(txtValue.getText()) + 1); !loop.equals(fact); loop = loop.add(one))
-        {
+        for (BigDecimal fact = new BigDecimal(Integer.parseInt(txtValue.getText()) + 1); !loop.equals(fact); loop = loop.add(one)) {
             bd = bd.multiply(loop);
         }
         
-        try
-        {
-            PrintStream printer = new PrintStream(factorial);
-            printer.print(bd);
-            JOptionPane.showMessageDialog(null,"Output complete.", "Factorial Value Output", JOptionPane.INFORMATION_MESSAGE);           
+        if(bd.toString().length() > 18)
+        {            
+            String thepower = formatter.format(bd);
+            String thepower2 = thepower.substring(thepower.indexOf("E")).replaceAll("0", "⁰").replaceAll("1", "¹").replaceAll("2", "²").replaceAll("3", "³").replaceAll("4", "⁴").replaceAll("5", "⁵").replaceAll("6", "⁶").replaceAll("7", "⁷").replaceAll("8", "⁸").replaceAll("9", "⁹").replace("E", " x10");
+            lblResult.setText("Result: " + thepower.substring(0, thepower.indexOf("E")) + thepower2);
         }
-        catch(FileNotFoundException ex)
+        else
         {
-            System.out.println(ex.getMessage());
-        }                        
+            lblResult.setText("Result: " + bd);
+        }
     }//GEN-LAST:event_btnCalculateActionPerformed
 
     /**
@@ -139,27 +157,30 @@ public class Main extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Factorial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Factorial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Factorial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Factorial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                new Factorial().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalculate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblExplain;
+    private javax.swing.JLabel lblResult;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtValue;
     // End of variables declaration//GEN-END:variables
