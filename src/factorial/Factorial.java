@@ -41,12 +41,24 @@ public class Factorial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btgMainGroup = new javax.swing.ButtonGroup();
         lblTitle = new javax.swing.JLabel();
         txtValue = new javax.swing.JTextField();
         lblExplain = new javax.swing.JLabel();
         btnCalculate = new javax.swing.JButton();
         lblResult = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        lblExplain1 = new javax.swing.JLabel();
+        lblExplain2 = new javax.swing.JLabel();
+        txtP2 = new javax.swing.JTextField();
+        txtP1 = new javax.swing.JTextField();
+        lblExplain3 = new javax.swing.JLabel();
+        txtC1 = new javax.swing.JTextField();
+        lblExplain4 = new javax.swing.JLabel();
+        txtC2 = new javax.swing.JTextField();
+        rdoFactorial = new javax.swing.JRadioButton();
+        rdoPerm = new javax.swing.JRadioButton();
+        rdoCombo = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -69,47 +81,114 @@ public class Factorial extends javax.swing.JFrame {
 
         jLabel1.setText("© 2014 ShadyCraft, Inc. All Rights Reserved.");
 
+        lblExplain1.setText("Calculate # of permutations:");
+
+        lblExplain2.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        lblExplain2.setText("P");
+
+        lblExplain3.setText("Calculate # of combinations:");
+
+        lblExplain4.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
+        lblExplain4.setText("C");
+
+        btgMainGroup.add(rdoFactorial);
+
+        btgMainGroup.add(rdoPerm);
+
+        btgMainGroup.add(rdoCombo);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(lblResult)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCalculate))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblResult)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCalculate))
-                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(rdoFactorial)
+                                .addGap(30, 30, 30)
                                 .addComponent(lblExplain)
+                                .addGap(41, 41, 41)
+                                .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(rdoPerm)
+                                .addGap(30, 30, 30)
+                                .addComponent(lblExplain1)
+                                .addGap(12, 12, 12)
+                                .addComponent(txtP1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblExplain2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtP2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(rdoCombo)
+                                .addGap(30, 30, 30)
+                                .addComponent(lblExplain3)
+                                .addGap(13, 13, 13)
+                                .addComponent(txtC1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblExplain4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtC2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel1))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(lblTitle))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
+                        .addGap(140, 140, 140)
+                        .addComponent(lblTitle)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(12, 12, 12)
                 .addComponent(lblTitle)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblExplain)
-                    .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rdoFactorial)
+                            .addComponent(lblExplain))))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(rdoPerm))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(lblExplain1))
+                    .addComponent(txtP1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblExplain2)
+                    .addComponent(txtP2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(rdoCombo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(lblExplain3))
+                    .addComponent(txtC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblExplain4)
+                    .addComponent(txtC2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCalculate)
                     .addComponent(lblResult))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -118,25 +197,91 @@ public class Factorial extends javax.swing.JFrame {
     private void btnCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculateActionPerformed
 
         NumberFormat formatter = new DecimalFormat("0.######E0");
-        File factorial = new File("factorial.txt");
 
         BigDecimal bd = new BigDecimal(1);
         BigDecimal loop = new BigDecimal(1);
-        BigDecimal one = new BigDecimal(1);
-
-        for (BigDecimal fact = new BigDecimal(Integer.parseInt(txtValue.getText()) + 1); !loop.equals(fact); loop = loop.add(one)) {
-            bd = bd.multiply(loop);
-        }
+        BigDecimal one = new BigDecimal(1);   
+        BigDecimal P2 = new BigDecimal(1);
+        BigDecimal zero = new BigDecimal(0);
+        BigDecimal C2 = new BigDecimal(1);
         
-        if(bd.toString().length() > 18)
-        {            
-            String thepower = formatter.format(bd);
-            String thepower2 = thepower.substring(thepower.indexOf("E")).replaceAll("0", "⁰").replaceAll("1", "¹").replaceAll("2", "²").replaceAll("3", "³").replaceAll("4", "⁴").replaceAll("5", "⁵").replaceAll("6", "⁶").replaceAll("7", "⁷").replaceAll("8", "⁸").replaceAll("9", "⁹").replace("E", " x10");
-            lblResult.setText("Result: " + thepower.substring(0, thepower.indexOf("E")) + thepower2);
-        }
-        else
+        if(rdoFactorial.isSelected())
         {
-            lblResult.setText("Result: " + bd);
+            for (BigDecimal fact = new BigDecimal(Integer.parseInt(txtValue.getText()) + 1); !loop.equals(fact); loop = loop.add(one)) {
+                bd = bd.multiply(loop);
+            }
+
+            if (bd.toString().length() > 18)
+            {
+                String thepower = formatter.format(bd);
+                String thepower2 = thepower.substring(thepower.indexOf("E")).replaceAll("0", "⁰").replaceAll("1", "¹").replaceAll("2", "²").replaceAll("3", "³").replaceAll("4", "⁴").replaceAll("5", "⁵").replaceAll("6", "⁶").replaceAll("7", "⁷").replaceAll("8", "⁸").replaceAll("9", "⁹").replace("E", " x10");
+                lblResult.setText("Result: " + thepower.substring(0, thepower.indexOf("E")) + thepower2);
+            } else
+            {
+                lblResult.setText("Result: " + bd);
+            }            
+        }
+        else if(rdoPerm.isSelected())
+        {
+            for(BigDecimal fact = new BigDecimal(Integer.parseInt(txtP1.getText()) + 1); !loop.equals(fact); loop = loop.add(one))
+            {
+                bd = bd.multiply(loop);
+            }
+            
+            loop = loop.multiply(zero); loop = loop.add(one);
+            
+            for(BigDecimal fact = new BigDecimal(Integer.parseInt(txtP1.getText()) - Integer.parseInt(txtP2.getText()) + 1); !loop.equals(fact); loop = loop.add(one))
+            {                
+                P2 = P2.multiply(loop);               
+            }
+                        
+            bd = bd.divide(P2);
+            
+            if (bd.toString().length() > 18)
+            {
+                String thepower = formatter.format(bd);
+                String thepower2 = thepower.substring(thepower.indexOf("E")).replaceAll("0", "⁰").replaceAll("1", "¹").replaceAll("2", "²").replaceAll("3", "³").replaceAll("4", "⁴").replaceAll("5", "⁵").replaceAll("6", "⁶").replaceAll("7", "⁷").replaceAll("8", "⁸").replaceAll("9", "⁹").replace("E", " x10");
+                lblResult.setText("Result: " + thepower.substring(0, thepower.indexOf("E")) + thepower2);
+            } 
+            else
+            {
+                lblResult.setText("Result: " + bd);
+            }            
+        }
+        else if(rdoCombo.isSelected())
+        {
+            for(BigDecimal fact = new BigDecimal(Integer.parseInt(txtC1.getText()) + 1); !loop.equals(fact); loop = loop.add(one))
+            {
+                bd = bd.multiply(loop);
+            }
+            
+            loop = loop.multiply(zero); loop = loop.add(one);
+            
+            for(BigDecimal fact = new BigDecimal(Integer.parseInt(txtC1.getText()) - Integer.parseInt(txtC2.getText()) + 1); !loop.equals(fact); loop = loop.add(one))
+            {                
+                P2 = P2.multiply(loop);               
+            }
+
+            loop = loop.multiply(zero); loop = loop.add(one);
+            
+            for(BigDecimal fact = new BigDecimal(Integer.parseInt(txtC2.getText()) + 1); !loop.equals(fact); loop = loop.add(one))
+            {
+                C2 = C2.multiply(loop);
+            }
+            
+            P2 = P2.multiply(C2);
+            bd = bd.divide(P2);
+            
+            if (bd.toString().length() > 18)
+            {
+                String thepower = formatter.format(bd);
+                String thepower2 = thepower.substring(thepower.indexOf("E")).replaceAll("0", "⁰").replaceAll("1", "¹").replaceAll("2", "²").replaceAll("3", "³").replaceAll("4", "⁴").replaceAll("5", "⁵").replaceAll("6", "⁶").replaceAll("7", "⁷").replaceAll("8", "⁸").replaceAll("9", "⁹").replace("E", " x10");
+                lblResult.setText("Result: " + thepower.substring(0, thepower.indexOf("E")) + thepower2);
+            } 
+            else
+            {
+                lblResult.setText("Result: " + bd);
+            }            
         }
     }//GEN-LAST:event_btnCalculateActionPerformed
 
@@ -177,11 +322,23 @@ public class Factorial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btgMainGroup;
     private javax.swing.JButton btnCalculate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblExplain;
+    private javax.swing.JLabel lblExplain1;
+    private javax.swing.JLabel lblExplain2;
+    private javax.swing.JLabel lblExplain3;
+    private javax.swing.JLabel lblExplain4;
     private javax.swing.JLabel lblResult;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JRadioButton rdoCombo;
+    private javax.swing.JRadioButton rdoFactorial;
+    private javax.swing.JRadioButton rdoPerm;
+    private javax.swing.JTextField txtC1;
+    private javax.swing.JTextField txtC2;
+    private javax.swing.JTextField txtP1;
+    private javax.swing.JTextField txtP2;
     private javax.swing.JTextField txtValue;
     // End of variables declaration//GEN-END:variables
 }
